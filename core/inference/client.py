@@ -60,10 +60,10 @@ class Backend(StrEnum):
             case Backend.OPENAI_CHAT:
                 from openai import AsyncOpenAI
 
-                from .openai_api import OpenAIChatInference
+                from .openai_api import OpenAIInference
 
                 client = AsyncOpenAI(api_key=api_key, base_url=url)
-                return OpenAIChatInference(client, model_name=model_name, is_local=is_local, pricing=pricing)
+                return OpenAIInference(client, model_name=model_name, is_local=is_local, pricing=pricing)
 
             case _:
                 raise ValueError(f"Unknown backend: {self}")
@@ -333,10 +333,36 @@ class VLLM_Leanstral(Model):
 
 
 # ---------------------------------------------------------------------------
+# vLLM models (zj)
+# ---------------------------------------------------------------------------
+
+class VLLM_Opus_4_6(Model):
+    model_name = os.environ.get("VLLM_MODEL_NAME", "custom-model")
+    abbreviation = "vLLM Opus 4.6"
+    pricing = ModelPricing(
+        input_cost_per_m=5.0, output_cost_per_m=25.0, cached_input_cost_per_m=0.5, cache_write_cost_per_m=6.25
+    )
+    provider_url = _VLLM_LOCAL
+    env_key = "VLLM_API_KEY"
+    backend = Backend.OPENAI_CHAT
+    is_local = True
+
+class VLLM_Custom(Model):
+    model_name = "to edit"
+    abbreviation = "vLLM Custom"
+    pricing = _FREE
+    provider_url = os.environ.get("VLLM_BASE_URL", "")
+    env_key = "VLLM_API_KEY"
+    backend = Backend.OPENAI_CHAT
+    is_local = True
+
+# ---------------------------------------------------------------------------
 # Default model and helpers
 # ---------------------------------------------------------------------------
 
-DEFAULT_MODEL: type[Model] = Opus_4_6
+
+DEFAULT_MODEL: type[Model] = VLLM_Custom
+# DEFAULT_MODEL: type[Model] = Opus_4_6
 _ALL_MODELS: tuple[type[Model], ...] = tuple(Model._registry)
 _MODEL_BY_ABBR: dict[str, type[Model]] = {m.abbreviation: m for m in _ALL_MODELS}
 

@@ -38,6 +38,7 @@ import fire
 import yaml
 from dotenv import load_dotenv
 
+load_dotenv()
 from core.coordination.multinode import get_master_addr, get_master_port, get_rank, get_world_size
 from core.coordination.multinode import DistributedExecutor, ZmqTaskServer
 from core.coordination.merge_queue import MergeQueue, MergeQueueServer, _MERGE_PORT_OFFSET
@@ -52,7 +53,6 @@ from .urls import register_url, cleanup_urls
 from .worker_node import LeanWorkerNode
 from .workspace import ensure_run_workspace
 
-load_dotenv()
 logger = logging.getLogger(__name__)
 
 APP_DIR = Path(__file__).resolve().parent

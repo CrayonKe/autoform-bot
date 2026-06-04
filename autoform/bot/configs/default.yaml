@@ -1,0 +1,18 @@
+workspace:
+  path: ../my-workspace
+  mathlib_path: submodules/mathlib
+  lib_name: My_Book
+
+book:
+  path: my_book
+  files: [book.md]
+  targets: targets.yaml
+
+llm:
+  model: vLLM Opus 4.6
+
+workers:
+  agents_per_node: 5
+  num_repls_per_node: 5
+  min_agents_per_task: 3
+  max_agents_per_task: 5

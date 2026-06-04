@@ -1,0 +1,37 @@
+- description: Let $a, b \in \mathbb{Z}$ with $a \neq 0$. We say that $a$ divides
+    $b$, written $a \mid b$, if there exists an integer $k$ such that $b = ak$.
+  kind: definition
+  location: Chapter 1, Section 1.1
+  name: Definition 1.1 (Divisibility)
+- description: Let $a, b, c \in \mathbb{Z}$ with $a \neq 0$ and $b \neq 0$. If $a
+    \mid b$ and $b \mid c$, then $a \mid c$.
+  kind: theorem
+  location: Chapter 1, Section 1.1
+  name: Theorem 1.2 (Transitivity of Divisibility)
+- description: If $d \mid a$ and $d \mid b$, then $d \mid (ma + nb)$ for all $m, n
+    \in \mathbb{Z}$.
+  kind: theorem
+  location: Chapter 1, Section 1.1
+  name: Theorem 1.3 (Divisibility and Linear Combinations)
+- description: For any integers $a$ and $b$ with $b > 0$, there exist unique integers
+    $q$ (quotient) and $r$ (remainder) such that $a = bq + r$ and $0 \leq r < b$.
+  kind: theorem
+  location: Chapter 1, Section 1.2
+  name: Theorem 1.4 (Division Algorithm)
+- description: 'A group is a set $G$ together with a binary operation $\cdot : G \times
+    G \to G$ satisfying: (i) associativity: $(a \cdot b) \cdot c = a \cdot (b \cdot
+    c)$; (ii) identity: there exists $e \in G$ such that $e \cdot a = a \cdot e =
+    a$ for all $a$; (iii) inverses: for each $a \in G$ there exists $a^{-1} \in G$
+    such that $a \cdot a^{-1} = a^{-1} \cdot a = e$.'
+  kind: definition
+  location: Chapter 2, Section 2.1
+  name: Definition 2.1 (Group)
+- description: In a group $G$, each element has exactly one inverse.
+  kind: theorem
+  location: Chapter 2, Section 2.1
+  name: Theorem 2.2 (Uniqueness of Inverses)
+- description: In a group $G$, if $a \cdot b = a \cdot c$, then $b = c$. Similarly,
+    if $b \cdot a = c \cdot a$, then $b = c$.
+  kind: theorem
+  location: Chapter 2, Section 2.1
+  name: Theorem 2.3 (Cancellation Law)
